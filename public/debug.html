@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Debug Test</title>
+  <style>
+    body { background: #080810; color: #e7e5e4; font-family: monospace; padding: 2rem; }
+    .pass { color: #22c55e; } .fail { color: #ef4444; } .info { color: #f97316; }
+    #log { white-space: pre; font-size: 0.85rem; line-height: 1.7; }
+  </style>
+</head>
+<body>
+<h2 style="color:#C8421A">AI Excellence LaunchPad — Debug Page</h2>
+<div id="log">Running checks...\n</div>
+<script type="module">
+const log = document.getElementById('log')
+const add = (msg, cls='') => { log.innerHTML += `<span class="${cls}">${msg}</span>\n` }
+
+// 1. Basic JS
+add('✅ JavaScript module loading works', 'pass')
+
+// 2. WebGL
+try {
+  const c = document.createElement('canvas')
+  const gl = c.getContext('webgl') || c.getContext('experimental-webgl')
+  add(gl ? '✅ WebGL supported' : '⚠️ WebGL NOT available (3D disabled)', gl ? 'pass' : 'info')
+} catch(e) { add('❌ WebGL check threw: ' + e.message, 'fail') }
+
+// 3. localStorage
+try {
+  localStorage.setItem('__test__', '1')
+  localStorage.removeItem('__test__')
+  add('✅ localStorage works', 'pass')
+} catch(e) { add('❌ localStorage failed: ' + e.message, 'fail') }
+
+// 4. Dynamic import - React
+add('⏳ Testing React import...', 'info')
+try {
+  const React = await import('/node_modules/react/index.js')
+  add('✅ React loads: ' + (React.version || 'ok'), 'pass')
+} catch(e) { add('❌ React import failed: ' + e.message, 'fail') }
+
+// 5. Dynamic import - main app chunks
+add('⏳ Testing app module imports...', 'info')
+try {
+  const constants = await import('/src/lib/constants.js')
+  add('✅ constants.js: APP_NAME = ' + constants.APP_NAME, 'pass')
+} catch(e) { add('❌ constants.js failed: ' + e.message, 'fail') }
+
+try {
+  const storage = await import('/src/lib/storage.js')
+  add('✅ storage.js loads', 'pass')
+} catch(e) { add('❌ storage.js failed: ' + e.message, 'fail') }
+
+try {
+  const data = await import('/src/lib/data.js')
+  add('✅ data.js: ' + data.WEEKS?.length + ' weeks, ' + data.DOMAINS?.length + ' domains', 'pass')
+} catch(e) { add('❌ data.js failed: ' + e.message, 'fail') }
+
+// 6. Three.js
+add('⏳ Testing @react-three/fiber...', 'info')
+try {
+  const r3f = await import('/@react-three/fiber')
+  add('✅ @react-three/fiber loads, Canvas: ' + typeof r3f.Canvas, 'pass')
+} catch(e) { add('❌ @react-three/fiber failed: ' + e.message, 'fail') }
+
+// 7. App component
+add('⏳ Testing App.jsx...', 'info')
+try {
+  const app = await import('/src/App.jsx')
+  add('✅ App.jsx loads', 'pass')
+} catch(e) { add('❌ App.jsx failed: ' + e.message, 'fail') }
+
+add('\nAll checks complete. If you see ❌ above, that is the root cause.', 'info')
+add('Also check your browser DevTools Console (F12) for full stack traces.', 'info')
+</script>
+</body>
+</html>

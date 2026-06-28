@@ -1,0 +1,12 @@
+node_modules
+dist
+dist2
+.DS_Store
+src_backup
+src_backup/
+.vercel
+.vercel/
+.env
+.env*.local
+*.log
+*.bak
