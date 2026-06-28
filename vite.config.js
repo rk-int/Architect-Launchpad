@@ -8,45 +8,66 @@ export default defineConfig({
     react(),
     tailwindcss(),
     VitePWA({
-      registerType: 'prompt',
+      registerType: 'autoUpdate',
+      injectRegister: 'inline',
       manifest: {
         name: 'Anthropic Claude LaunchPad',
         short_name: 'Claude LaunchPad',
-        description: 'Claude Certified Architect 9-Week Study Tracker',
-        theme_color: '#C8421A',
-        background_color: '#0f0f13',
+        description: 'Interactive Claude learning resources, study paths, and exam simulations',
+        theme_color: '#ea580c',
+        background_color: '#020617',
         display: 'standalone',
         start_url: '/',
+        orientation: 'portrait',
         icons: [
-          { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },
-          { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' }
+          {
+            src: 'favicon.svg',
+            sizes: 'any',
+            type: 'image/svg+xml',
+            purpose: 'any maskable'
+          }
         ]
       },
       workbox: {
-        // Pre-cache only the shell; JS chunks served stale-while-revalidate
-        globPatterns: ['**/*.{html,css}', 'assets/index-*.js'],
+        globPatterns: ['**/*.{html,css,js,ico,png,svg,jpg}'],
         runtimeCaching: [
           {
-            urlPattern: /\.js$/,
-            handler: 'StaleWhileRevalidate',
-            options: { cacheName: 'js-chunks' }
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-stylesheets',
+              expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 365 }
+            }
           },
           {
-            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-            handler: 'StaleWhileRevalidate',
-            options: { cacheName: 'google-fonts' }
+            urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-webformats',
+              expiration: { maxEntries: 30, maxAgeSeconds: 60 * 60 * 24 * 365 }
+            }
           }
         ]
       }
     })
   ],
   build: {
+    chunkSizeWarningLimit: 800,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          icons:  ['lucide-react'],
-          three:  ['three', '@react-three/fiber', '@react-three/drei'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('three') || id.includes('@react-three')) {
+              return 'vendor-three'
+            }
+            if (id.includes('lucide-react')) {
+              return 'vendor-icons'
+            }
+            if (id.includes('react-router-dom') || id.includes('react-router') || id.includes('@remix-run')) {
+              return 'vendor-router'
+            }
+            return 'vendor-core'
+          }
         }
       }
     }
