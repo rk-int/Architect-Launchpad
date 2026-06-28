@@ -466,6 +466,13 @@ export default function Onboarding() {
         )
       })()}
 
+      {/* ── Crafted-by credit on onboarding landing ── */}
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center z-30 select-none pointer-events-none">
+        <p className="text-[10px] font-mono text-slate-500 tracking-wider">
+          Crafted by : <span className="text-orange-500 font-bold">Ravi Kiran</span>
+        </p>
+      </div>
+
     </div>
   )
 }
