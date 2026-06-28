@@ -3,7 +3,7 @@
 
 A progressive web app (PWA) to track your 9-week study journey toward the **Claude Certified Architect (CCA)** exam.
 
-🔗 **Live app:** https://cca-prep-sable.vercel.app
+🔗 **Live app:** 
 
 ---
 
