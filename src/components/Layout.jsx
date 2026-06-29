@@ -1,5 +1,5 @@
 import { Outlet, NavLink } from 'react-router-dom'
-import { LayoutDashboard, BookOpen, Brain, TrendingUp, Settings, Target, Flame, Sun, Moon, ShieldAlert, Library } from 'lucide-react'
+import { LayoutDashboard, BookOpen, Brain, TrendingUp, Settings, Target, Flame, Sun, Moon, ShieldAlert, Library, Map, User } from 'lucide-react'
 import { getUser, computeStreak } from '../lib/storage'
 import { getDefaultExamDate } from '../lib/constants'
 import { useTheme } from '../lib/ThemeContext'
@@ -9,6 +9,8 @@ const NAV = [
   { to:'/plan', icon:BookOpen, label:'Learning Plan' },
   { to:'/quiz', icon:Brain, label:'Mock Tests' },
   { to:'/references', icon:Library, label:'References' },
+  { to:'/roadmap', icon:Map, label:'Learning flow' },
+  { to:'/about', icon:User, label:'About Me' },
   { to:'/progress', icon:TrendingUp, label:'Insights' },
   { to:'/settings', icon:Settings, label:'Settings' },
 ]
@@ -44,8 +46,8 @@ export default function Layout() {
               <Target size={18} className="text-orange-400" />
             </div>
             <div>
-              <div className="text-sm font-black tracking-wide text-slate-100 leading-tight">Claude Certified</div>
-              <div className="text-[11px] font-bold text-orange-400/90 leading-tight tracking-wider uppercase font-mono mt-0.5">LaunchPad</div>
+              <div className="text-sm font-black tracking-wide text-slate-100 leading-tight">Claude Certification</div>
+              <div className="text-[11px] font-bold text-orange-400/90 leading-tight tracking-wider uppercase font-mono mt-0.5">Launchpad</div>
             </div>
           </div>
         </div>
@@ -103,7 +105,7 @@ export default function Layout() {
             <div className="w-8 h-8 rounded-lg bg-orange-600/15 border border-orange-500/30 flex items-center justify-center">
               <Target size={15} className="text-orange-400" />
             </div>
-            <span className="font-black text-xs tracking-wider uppercase text-slate-100">Claude LaunchPad</span>
+            <span className="font-black text-xs tracking-wider uppercase text-slate-100">Claude Certification Launchpad</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1.5 bg-slate-900 border border-white/5 px-2.5 py-1 rounded-xl text-[10px]">

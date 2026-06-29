@@ -10,3 +10,5 @@ src_backup/
 .env*.local
 *.log
 *.bak
+public/assets/*.mp4
+public/assets/*.gif

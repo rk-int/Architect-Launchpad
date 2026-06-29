@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useProgress } from '../lib/useProgress'
 import { getUser } from '../lib/storage'
@@ -7,12 +8,13 @@ import ProgressRing from '../components/ProgressRing'
 import Canvas3D from '../components/3d/Canvas3D'
 import ParticleField from '../components/3d/ParticleField'
 import ClaudeOrb from '../components/3d/ClaudeOrb'
-import { ChevronRight, BookOpen, Brain, Flame, Target, Trophy, Calendar } from 'lucide-react'
+import { ChevronRight, BookOpen, Brain, Flame, Target, Trophy, Calendar, Map, X } from 'lucide-react'
 
 export default function Home() {
   const { pct, done, total, weekProgress, domainProgress, weeksComplete, streak, activeWeeks } = useProgress()
   const user = getUser()
   const navigate = useNavigate()
+  const [showPoster, setShowPoster] = useState(false)
 
   const examDate = user?.examDate ? new Date(user.examDate) : new Date(getDefaultExamDate())
   const daysLeft = Math.max(0, Math.ceil((examDate - new Date()) / 86400000))
@@ -44,7 +46,7 @@ export default function Home() {
               Claude Professional
             </span>
             <h1 className="text-3xl md:text-4xl font-black text-slate-100 tracking-tight mt-3">
-              Claude Professional: <span className="text-glow-coral font-black text-orange-400">{user?.name || 'Learner'}</span>
+              Name: <span className="text-glow-coral font-black text-orange-400">{user?.name || 'Learner'}</span>
             </h1>
             <p className="text-xs md:text-sm text-slate-400 max-w-md">
               Your preparation status is compiled below. Launch the next module to maintain schedule integrity.
@@ -157,7 +159,7 @@ export default function Home() {
             </button>
 
             {/* Quick Actions Panel */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <button
                 onClick={() => navigate('/plan')}
                 className="neo-glass rounded-2xl p-4 text-left neo-glass-hover group cursor-pointer"
@@ -178,6 +180,25 @@ export default function Home() {
                 </div>
                 <h4 className="text-sm font-bold text-slate-100">Exam Simulator</h4>
                 <p className="text-[10px] text-slate-500 font-mono mt-0.5">Test design scenarios</p>
+              </button>
+
+              <button
+                onClick={() => setShowPoster(true)}
+                className="neo-glass rounded-2xl p-4 text-left neo-glass-hover group cursor-pointer border border-orange-500/30 shadow-[0_0_15px_rgba(255,107,0,0.1)] relative overflow-hidden"
+              >
+                {/* Pulsing Eye-catching Notification Dot */}
+                <span className="absolute top-3 right-3 flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500"></span>
+                </span>
+                
+                <div className="w-9 h-9 rounded-xl bg-orange-600/15 border border-orange-500/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-[0_0_12px_rgba(255,107,0,0.15)] animate-pulse">
+                  <Map size={16} className="text-orange-400" />
+                </div>
+                <h4 className="text-sm font-bold text-slate-100 flex items-center gap-1.5">
+                  Roadmap Poster
+                </h4>
+                <p className="text-[10px] text-slate-400 font-mono mt-0.5">View {activeWeeks.length} Weeks infographic</p>
               </button>
             </div>
           </div>
@@ -239,9 +260,56 @@ export default function Home() {
                 </button>
               )
             })}
-          </div>
         </div>
       </div>
+    </div>
+
+      {/* ── ROADMAP POSTER FULLSCREEN MODAL ── */}
+      {showPoster && (
+        <div className="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex flex-col justify-center items-center p-4 animate-fade-in">
+          {/* Header & Controls */}
+          <div className="w-full max-w-5xl flex items-center justify-between mb-4 px-2">
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-mono font-bold tracking-widest text-orange-400 uppercase bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/20">
+                {activeWeeks.length} Weeks Roadmap Poster
+              </span>
+              <span className="text-xs text-slate-400 hidden sm:inline font-mono">
+                • Perfect fit for your selected timeline
+              </span>
+            </div>
+            
+            <button
+              onClick={() => setShowPoster(false)}
+              className="p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-white/5 hover:border-white/10 text-slate-400 hover:text-slate-100 transition-all cursor-pointer flex items-center justify-center"
+              title="Close Poster"
+            >
+              <X size={16} />
+            </button>
+          </div>
+
+          {/* Image Canvas */}
+          <div 
+            onClick={() => setShowPoster(false)}
+            className="w-full max-w-5xl flex-1 flex items-center justify-center overflow-hidden cursor-zoom-out"
+          >
+            <img
+              src={`/assets/roadmap-${activeWeeks.length}w.png`}
+              alt={`${activeWeeks.length} Weeks Roadmap`}
+              className="max-w-full max-h-[80vh] object-contain rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10"
+            />
+          </div>
+
+          {/* Footer close helper */}
+          <div className="mt-4 text-center">
+            <button
+              onClick={() => setShowPoster(false)}
+              className="px-6 py-2 bg-slate-900 hover:bg-slate-800 border border-white/5 hover:border-white/10 text-xs font-mono text-slate-300 hover:text-slate-100 rounded-full transition-all cursor-pointer"
+            >
+              Click anywhere to close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

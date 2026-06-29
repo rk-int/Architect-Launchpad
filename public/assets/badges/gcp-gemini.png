@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hiverlab | Industrial Spatial Intelligence for Enterprise Operations</title>
+    <meta name="description" content="Hiverlab is an industrial spatial intelligence company building edge AI sensors, digital twins, and immersive operations tools that help enterprises track assets, monitor equipment, and run safer, more efficient facilities." />
+    <meta name="keywords" content="industrial spatial intelligence, spatial computing, edge AI, digital twin, asset tracking, predictive maintenance, IoT sensors, BLE positioning, LoRaWAN, immersive enterprise solutions" />
+    <meta name="author" content="Hiverlab" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="canonical" href="https://hiverlab.com" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BFYRM4RT4B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BFYRM4RT4B');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <meta property="og:title" content="Hiverlab | Industrial Spatial Intelligence for Enterprise Operations" />
+    <meta property="og:description" content="Edge AI sensors, digital twins, and immersive operations tools for industrial asset tracking, predictive maintenance, and facility intelligence." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hiverlab.com" />
+    <meta property="og:site_name" content="Hiverlab" />
+    <meta property="og:image" content="https://hiverlab.com/og-image.png" />
+    <meta property="og:locale" content="en_SG" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hiverlab | Industrial Spatial Intelligence for Enterprise Operations" />
+    <meta name="twitter:description" content="Edge AI sensors, digital twins, and immersive operations tools for industrial asset tracking, predictive maintenance, and facility intelligence." />
+    <meta name="twitter:image" content="https://hiverlab.com/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Hiverlab",
+      "url": "https://hiverlab.com",
+      "logo": "https://hiverlab.com/favicon.ico",
+      "description": "Industrial spatial intelligence company building edge AI sensors, digital twins, and immersive operations tools for enterprise asset tracking, predictive maintenance, and facility monitoring.",
+      "foundingLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "SG"
+        }
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/hiverlab"
+      ],
+      "knowsAbout": [
+        "Industrial Spatial Intelligence",
+        "Spatial Computing",
+        "Edge AI",
+        "Digital Twins",
+        "Industrial IoT",
+        "Asset Tracking",
+        "Predictive Maintenance",
+        "BLE Indoor Positioning",
+        "LoRaWAN",
+        "Immersive Enterprise Solutions"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Hiverlab",
+      "url": "https://hiverlab.com",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Hiverlab"
+      }
+    }
+    </script>
+
+    <script type="module" crossorigin src="/assets/index-DA0yoYm7.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CrtP-TW4.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
