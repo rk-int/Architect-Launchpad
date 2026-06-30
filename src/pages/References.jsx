@@ -18,12 +18,6 @@ const OFFICIAL_LINKS = [
     url: 'https://www-cdn.anthropic.com/files/4zrzovbb/website/34783bca828d7fa331f515ced26f1c9232151b2c.pdf',
     description: 'Architecture details, security postures, and risk mitigation strategies for high-compliance financial use cases.',
     badge: 'Finance Case Study'
-  },
-  {
-    title: 'A practical deployment guide (Claude for the legal industry)',
-    url: 'https://www-cdn.anthropic.com/files/4zrzovbb/website/4b29cc317c727542642b5056e412cf8e779e13d8.pdf',
-    description: 'Deploying agentic systems for discovery, analysis, and processing within legal constraints.',
-    badge: 'Legal Case Study'
   }
 ]
 

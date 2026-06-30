@@ -126,6 +126,7 @@ export default function Settings() {
       </Section>
 
       {/* Backup and Restore data */}
+      {/* 
       <Section title="DATA">
         <button
           onClick={exportData}
@@ -158,6 +159,7 @@ export default function Settings() {
           )}
         </div>
       </Section>
+      */}
 
       {/* State Reset Danger zone */}
       <Section title="DANGER">

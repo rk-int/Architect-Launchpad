@@ -21,6 +21,7 @@ const Reference   = lazy(() => import('./pages/Reference'))
 const References  = lazy(() => import('./pages/References'))
 const CertificationRoadmap = lazy(() => import('./pages/CertificationRoadmap'))
 const AboutMe = lazy(() => import('./pages/AboutMe'))
+const ArchitectDigest = lazy(() => import('./pages/ArchitectDigest'))
 
 function Guard({ children }) {
   if (!isSetupComplete()) return <Navigate to="/onboarding" replace />
@@ -47,6 +48,7 @@ export default function App() {
               <Route path="references" element={<References />} />
               <Route path="roadmap" element={<CertificationRoadmap />} />
               <Route path="about" element={<AboutMe />} />
+              <Route path="digest" element={<ArchitectDigest />} />
             </Route>
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

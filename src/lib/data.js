@@ -32,7 +32,7 @@ export const WEEKS = [
       {type:'course',icon:'🎓',title:'AI Fluency: Framework & Foundations',url:'https://anthropic.skilljar.com/ai-fluency-framework-foundations',desc:'Free · Anthropic Academy. Responsible AI collaboration, ethics, effective + safe use.'},
       {type:'course',icon:'🎓',title:'Claude 101',url:'https://anthropic.skilljar.com/claude-101',desc:'Free · Anthropic Academy. 13 lessons, ~3hrs. Core Claude features, projects, artifacts, memory.'},
       {type:'read',icon:'📄',title:'Prompt Engineering Overview',url:'https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview',desc:'Official Anthropic docs. System prompts, roles, prompting concepts — no code required to read.'},
-      {type:'practice',icon:'📊',title:'Interactive Prompting Tutorial (Google Sheets)',url:'https://docs.google.com/spreadsheets/d/19jzLgRruG9kjUQNKtCg1ZjdD6l6weA6qRXG5zLIAhC8',desc:'Free · No code needed. Hands-on prompting exercises in a spreadsheet.'},
+      /* {type:'practice',icon:'📊',title:'Interactive Prompting Tutorial (Google Sheets)',url:'https://docs.google.com/spreadsheets/d/19jzLgRruG9kjUQNKtCg1ZjdD6l6weA6qRXG5zLIAhC8',desc:'Free · No code needed. Hands-on prompting exercises in a spreadsheet.'}, */
       {type:'supplementary',icon:'🎬',title:'Claude AI: The AI Assistant You\'ll Actually Use',url:'https://www.udemy.com/course/claude-ai-the-ai-assistant-youll-actually-use/',desc:'Optional · Udemy · ⭐4.5 · 2,602 ratings · 8hrs. Practical Claude usage for real-world tasks.',paid:true},
       {type:'supplementary',icon:'🎬',title:'Claude for Beginners: AI in Business & Automation',url:'https://www.udemy.com/course/claude-pro-mastery-ai-for-business-marketing-automation/',desc:'Optional · Udemy · ⭐4.3 · 191 ratings · 16hrs. Business and marketing use cases.',paid:true},
     ],
@@ -329,6 +329,15 @@ export function getStudyPlanWeeks(startedAt, examDate) {
     const targetIdx = Math.min(N - 1, Math.floor(i * (N / 9)));
     groups[targetIdx].push(w);
   });
+
+  let phase1WeekId = 4;
+  for (let j = 0; j < N; j++) {
+    const sourceWeeks = groups[j];
+    if (sourceWeeks && sourceWeeks[0] && sourceWeeks[0].phase >= 1) {
+      phase1WeekId = j + 1;
+      break;
+    }
+  }
   
   const startDate = startedAt ? new Date(startedAt) : new Date();
   startDate.setHours(0,0,0,0);
@@ -381,7 +390,14 @@ export function getStudyPlanWeeks(startedAt, examDate) {
     concepts.forEach(c => {
       if (!seenConcept.has(c.title)) {
         seenConcept.add(c.title);
-        uniqueConcepts.push(c);
+        if (c.title === '🎯 API Stage Tip') {
+          uniqueConcepts.push({
+            ...c,
+            body: `The "Building with the Claude API" course is the closest thing to an official CCA study guide. Complete every section before Week ${phase1WeekId} — many exam questions test exactly these patterns.`
+          });
+        } else {
+          uniqueConcepts.push(c);
+        }
       }
     });
     

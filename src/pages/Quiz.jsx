@@ -36,7 +36,7 @@ export default function Quiz() {
             OFFICIAL 77-QUESTION SIMULATION
           </span>
         </div>
-        <h3 className="font-black text-lg text-slate-100 leading-tight">CCA-F Mock Examination</h3>
+        <h3 className="font-black text-lg text-slate-100 leading-tight">Mock Examination</h3>
         <div className="flex items-center gap-4 text-xs font-mono text-slate-500 mt-2 mb-5">
           <span className="flex items-center gap-1"><Clock size={12} /> 120 min timer</span>
           <span>•</span>
@@ -140,6 +140,14 @@ export default function Quiz() {
           </div>
         </div>
       )}
+
+      {/* ── Disclaimer Box ── */}
+      <div className="neo-glass rounded-2xl p-4 border border-white/[0.03] bg-slate-950/20">
+        <p className="text-[10px] text-slate-500 leading-relaxed font-mono">
+          <strong className="text-orange-500/70 uppercase tracking-wider block mb-1">⚠️ Disclaimer</strong>
+          This simulator contains independent practice assessments designed for educational purposes. These are sample study questions and do not represent official, copyrighted, or actual questions from the official Anthropic certification exams.
+        </p>
+      </div>
     </div>
   )
 }

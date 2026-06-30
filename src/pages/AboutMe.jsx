@@ -11,9 +11,7 @@ export default function AboutMe() {
       logo: 'gcp.svg',
       items: [
         { name: 'Google Cloud Professional Cloud Architect', badge: 'gcp-pca.png' },
-        { name: 'Google Cloud Associate Cloud Engineer', badge: 'gcp-ace.png' },
-        { name: 'Gemini Enterprise Agent Development', badge: 'gcp-gemini-agent-dev.jpg' },
-        { name: 'Gemini Enterprise Deployment', badge: 'gcp-gemini-deployment.jpg' }
+        { name: 'Google Cloud Associate Cloud Engineer', badge: 'gcp-ace.png' }
       ]
     },
     {
@@ -118,7 +116,7 @@ export default function AboutMe() {
             About Me
           </h1>
           <p className="text-sm text-slate-400 mt-0.5">
-            Solutions Architect Profile & Certified Professional Qualifications
+            Solutions Architect
           </p>
         </div>
       </div>
@@ -130,8 +128,8 @@ export default function AboutMe() {
 
         <div className="flex flex-col md:flex-row items-start gap-6">
           {/* Avatar Placeholder */}
-          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-slate-950 font-black text-3xl shadow-lg border border-white/10 flex-shrink-0 select-none mx-auto md:mx-0">
-            RK
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-slate-950 shadow-lg border border-white/10 flex-shrink-0 select-none mx-auto md:mx-0">
+            <User size={36} className="text-slate-950" />
           </div>
 
           <div className="space-y-4 flex-1 text-center md:text-left">
@@ -139,7 +137,6 @@ export default function AboutMe() {
               <span className="text-[10px] font-mono font-bold tracking-widest text-orange-400 uppercase bg-orange-500/10 px-2.5 py-1 rounded-md border border-orange-500/20">
                 Enterprise Integration, Cloud, AI, and Digital Transformation Architect
               </span>
-              <h2 className="text-2xl font-black text-slate-100 mt-3">Ravi Kiran</h2>
             </div>
             
             <p className="text-xs md:text-sm text-slate-400 leading-relaxed font-light">
