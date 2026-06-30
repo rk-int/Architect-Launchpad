@@ -96,19 +96,19 @@ body {
 
 [data-theme="light"] {
   /* Premium Polar Light Mode */
-  --stone-50: #0f172a;
-  --stone-100: #1e293b;
-  --stone-200: #334155;
-  --stone-300: #475569;
-  --stone-400: #64748b;
-  --stone-500: #94a3b8;
-  --stone-600: #cbd5e1;
-  --stone-700: #e2e8f0;
-  --stone-800: #f1f5f9;
-  --stone-900: #f8fafc;
+  --stone-50: #020617;
+  --stone-100: #0f172a;
+  --stone-200: #1e293b;
+  --stone-300: #334155;
+  --stone-400: #475569;
+  --stone-500: #64748b;
+  --stone-600: #94a3b8;
+  --stone-700: #cbd5e1;
+  --stone-800: #e2e8f0;
+  --stone-900: #f1f5f9;
   --stone-950: #ffffff;
 
-  --bg-color: #f1f5f9;
+  --bg-color: #f5f7fb;
   --orange-accent: #ea580c;
   --orange-glow: rgba(234, 88, 12, 0.15);
   --lime-accent: #15803d;
@@ -116,7 +116,7 @@ body {
   --aurora-1: rgba(234, 88, 12, 0.12);
   --aurora-2: rgba(14, 165, 233, 0.08);
 
-  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-bg: rgba(255, 255, 255, 0.75);
   --glass-border: rgba(15, 23, 42, 0.08);
   --glass-blur: blur(20px);
   --card-shadow: 
@@ -124,6 +124,17 @@ body {
     0 1px 3px rgba(0, 0, 0, 0.05),
     0 12px 24px rgba(15, 23, 42, 0.04);
   --card-glow: 0 0 20px rgba(234, 88, 12, 0.02);
+}
+
+/* Automatic Theme-Aware Overrides for White Borders & Backgrounds in Light Mode */
+[data-theme="light"] [class*="border-white/"],
+[data-theme="light"] [class*="border-white\\/"] {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme="light"] [class*="bg-white/"],
+[data-theme="light"] [class*="bg-white\\/"] {
+  background-color: rgba(15, 23, 42, 0.03) !important;
 }
 
 /* Premium Neo-Glass Cards */

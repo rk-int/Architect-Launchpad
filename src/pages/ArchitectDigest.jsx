@@ -32,7 +32,7 @@ export default function ArchitectDigest() {
       </div>
 
       {/* Search & Filter Controls */}
-      <div className="flex flex-col sm:flex-row gap-3 bg-slate-900/40 p-4 border border-white/5 rounded-2xl">
+      <div className="flex flex-col sm:flex-row gap-3 bg-slate-900/40 p-4 border border-slate-700 rounded-2xl">
         <div className="relative flex-1">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" size={16} />
           <input 
@@ -40,7 +40,7 @@ export default function ArchitectDigest() {
             placeholder="Search guides and cheatsheets..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-slate-950 border border-white/5 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-orange-500 transition-colors"
+            className="w-full bg-slate-900/30 border border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-orange-500 transition-colors"
           />
         </div>
         <div className="flex gap-1.5 overflow-x-auto pb-1 sm:pb-0">
@@ -51,7 +51,7 @@ export default function ArchitectDigest() {
               className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-colors cursor-pointer border whitespace-nowrap ${
                 selectedCategory === cat 
                   ? 'bg-orange-600 border-orange-500 text-slate-950 font-bold shadow-[0_0_10px_rgba(255,107,0,0.2)]' 
-                  : 'bg-slate-950 border-white/5 text-slate-400 hover:text-slate-200'
+                  : 'bg-slate-900/30 border-slate-700/80 text-slate-400 hover:text-slate-200'
               }`}
             >
               {cat === 'All' ? 'All Guides' : cat}
