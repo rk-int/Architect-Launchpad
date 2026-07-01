@@ -391,7 +391,7 @@ export default function Onboarding() {
             type="text"
             value={name}
             onChange={e => setName(e.target.value)}
-            placeholder="Enter Name / Professional (Ex: Ravi Kiran)"
+            placeholder="Enter Name / Professional"
             autoFocus
             onKeyDown={e => e.key === 'Enter' && name.trim().length >= 2 && setStep(2)}
             className="w-full bg-slate-950 border border-white/5 focus:border-orange-500 focus:shadow-[0_0_15px_rgba(255,107,0,0.06)] rounded-2xl px-5 py-4 text-slate-200 text-sm outline-none transition-all duration-300 placeholder:text-slate-600 backdrop-blur-xl"

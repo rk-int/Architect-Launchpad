@@ -24,7 +24,6 @@ const NAV = [
   { to:'/references', icon:BookMarked, label:'References', badge: { text: 'DOCS', type: 'docs' } },
   { to:'/digest', icon:Pointer, label:'Architect Digest', badge: { text: 'GUIDES', type: 'guides' } },
   { to:'/roadmap', icon:Workflow, label:'Learning flow', badge: { text: 'FLOW', type: 'flow' } },
-  { to:'/about', icon:BadgeCheck, label:'About Me', badge: { text: 'BIO', type: 'bio' } },
   { to:'/progress', icon:Activity, label:'Insights', badge: { text: 'STATS', type: 'stats' } },
   { to:'/settings', icon:Sliders, label:'Settings', badge: { text: 'CONFIG', type: 'config' } },
 ]
