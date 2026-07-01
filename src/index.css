@@ -270,6 +270,19 @@ body {
   pointer-events: none;
 }
 
+.glowing-border-red {
+  position: relative;
+}
+.glowing-border-red::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #ef4444, transparent 50%, rgba(255,255,255,0.05));
+  z-index: -1;
+  pointer-events: none;
+}
+
 /* Custom Grid Matrix background */
 .grid-matrix {
   background-size: 40px 40px;
